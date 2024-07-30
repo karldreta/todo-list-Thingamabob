@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -11,6 +12,13 @@ module.exports = {
         filename: 'index.html',
         inject: 'head',
         scriptLoading: 'defer',
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/imgs/favicon_io_title/favicon-16x16.png',
+      prefix: 'favicons/',
+      emitStats: false,
+      statsFilename: 'iconstats.json',
+      inject: true,
     }),
   ],
   output: {

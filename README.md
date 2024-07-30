@@ -16,3 +16,8 @@
 * **Apply the Single Responsibility Principle:** Design and organize my code so that each module or component has a single responsibility, enhancing maintainability and readability.
 
 * **Modularize the codebase:** Break down the code into reusable, self-contained modules, ensuring a clean, scalable, and manageable project structure.
+
+
+### Resources:
+
+[Drop Down](https://www.youtube.com/watch?v=VQWu4e6agPc)
