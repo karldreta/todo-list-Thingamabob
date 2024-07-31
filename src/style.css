@@ -26,6 +26,10 @@ body {
     grid-column: 1;
 }
 
+#sideBar h2 {
+    margin-left: 20px;
+}
+
 #content {
     border: 4px solid yellow;
     grid-row: 2;
@@ -45,7 +49,7 @@ body {
 
 .dropdown{
     display: block;
-    width: 100%;
+    width: 80%;
 }
 .dropdown button{
     background-color: hsl(0, 0%, 80%);
@@ -63,14 +67,14 @@ body {
     padding: 10px 15px;
     width: 100%;
 }
-.dropdown .content{
+.dropdown .dropdown-content{
     display: none;
     position: absolute;
     background-color: hsl(0, 0%, 95%);
-    min-width: 265px;
+    min-width: 215px;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
 }
-.dropdown:hover .content{
+.dropdown:hover .dropdown-content{
     display: block;
 }
 .dropdown:hover button{

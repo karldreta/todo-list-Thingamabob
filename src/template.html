@@ -9,7 +9,7 @@
     <header id="header">
         <h1 class="title">Thingamabob</h1>
         <nav class="headerNav">
-            <button class="headerBtn">+ New Project</button>
+            <button id="newProjectBtn">+ New Project</button>
         </nav>
     </header>
     <nav id="sideBar">
@@ -18,26 +18,26 @@
             <div class="sortBtnContainer">
                 <div class="dropdown">
                     <button>Priority</button>
-                    <div class="content">
-                        <a href="">Relaxed</a>
-                        <a href="">Urgent</a>
-                        <a href="">Important</a>
+                    <div class="dropdown-content">
+                        <a href="#">Relaxed</a>
+                        <a href="#">Urgent</a>
+                        <a href="#">Important</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <button>Date</button>
-                    <div class="content">
-                        <a href="">Today</a>
-                        <a href="">This Week</a>
-                        <a href="">This Month</a>
+                    <div class="dropdown-content">
+                        <a href="#">Today</a>
+                        <a href="#">This Week</a>
+                        <a href="#">This Month</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <button>All</button>
-                    <div class="content">
-                        <a href="">Priority</a>
-                        <a href="">Date</a>
-                        <a href="">Both</a>
+                    <div class="dropdown-content">
+                        <a href="#">Priority</a>
+                        <a href="#">Date</a>
+                        <a href="#">Both</a>
                     </div>
                 </div>
             </div>
@@ -49,5 +49,35 @@
     <main id="content">
 
     </main>
+
+    <!-- Templates to be Copied -->
+    <template>
+        <h2>Create New Project</h2>
+        <form action="#" method="post">
+            <label for="projectName">Project Name:</label>
+            <input type="text" id="projectName">
+            <div class="showError" id="nameError"></div>
+        
+            <label for="projectDescription">Description:</label>
+            <input type="text" id="projectDescription">
+            <div class="showError" id="descriptionError"></div>
+        
+            <label for="projectDueDate">Due Date:</label>
+            <input type="datetime-local" id="projectDueDate">
+            <div class="showError" id="dueDateError"></div>
+        
+            <div class="dropdown">
+                <button>Priority</button>
+                <div class="dropdown-content">
+                    <a href="#">Relaxed</a>
+                    <a href="#">Urgent</a>
+                    <a href="#">Important</a>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+    </template> 
+
 </body>
 </html>
