@@ -19,13 +19,13 @@
                 <div class="dropdown">
                     <button>Priority</button>
                     <div class="dropdown-content">
-                        <a href="#">Relaxed</a>
                         <a href="#">Urgent</a>
                         <a href="#">Important</a>
+                        <a href="#">Relaxed</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button>Date</button>
+                    <button>Due Date</button>
                     <div class="dropdown-content">
                         <a href="#">Today</a>
                         <a href="#">This Week</a>
@@ -36,9 +36,12 @@
                     <button>All</button>
                     <div class="dropdown-content">
                         <a href="#">Priority</a>
-                        <a href="#">Date</a>
+                        <a href="#">Due Date</a>
                         <a href="#">Both</a>
                     </div>
+                </div>
+                <div class="dropdown">
+                    <button>Completed</button>
                 </div>
             </div>
         </nav>
@@ -49,34 +52,14 @@
     <main id="content">
 
     </main>
+    
+<!-- Dialogs -->
+ 
 
-    <!-- Templates to be Copied -->
+
+
+    <!-- Templates to be Copied | Writing for Emmet, delete this After -->
     <template>
-        <h2>Create New Project</h2>
-        <form action="#" method="post">
-            <label for="projectName">Project Name:</label>
-            <input type="text" id="projectName">
-            <div class="showError" id="nameError"></div>
-        
-            <label for="projectDescription">Description:</label>
-            <input type="text" id="projectDescription">
-            <div class="showError" id="descriptionError"></div>
-        
-            <label for="projectDueDate">Due Date:</label>
-            <input type="datetime-local" id="projectDueDate">
-            <div class="showError" id="dueDateError"></div>
-        
-            <div class="dropdown">
-                <button>Priority</button>
-                <div class="dropdown-content">
-                    <a href="#">Relaxed</a>
-                    <a href="#">Urgent</a>
-                    <a href="#">Important</a>
-                </div>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-        
     </template> 
 
 </body>
