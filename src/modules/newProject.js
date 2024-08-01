@@ -1,56 +1,54 @@
+import newProject, {projectsArray} from './projects.js';
+
 const newProjectBtn = document.querySelector('#newProjectBtn');
 newProjectBtn.addEventListener('click', addNewProject);
-const body = document.querySelector('body');
-const projectInputDialog = document.createElement('dialog');
+const projectInputDialog = document.querySelector('#projectInputDialog');
 
 export default function addNewProject () {
-    projectInputDialog.innerHTML = `
-        <h2>Create New Project</h2>
-        <form action="#" id="projectForm">
-            <label for="projectName">Project Name:</label>
-            <input type="text" id="projectName">
-            <div class="showError" id="nameError"></div>
-        
-            <label for="projectDescription">Description:</label>
-            <input type="text" id="projectDescription">
-            <div class="showError" id="descriptionError"></div>
-        
-            <label for="projectDueDate">Due Date:</label>
-            <input type="datetime-local" id="projectDueDate">
-            <div class="showError" id="dueDateError"></div>
-        
-            <fieldset>
-                <legend>Priority Level:</legend>
-
-                <input type="radio" id="priorityUrgent" name="projectPriority" value="urgent">
-                <label for="priorityUrgent">Urgent</label>
-                
-                <input type="radio" id="priorityImportant" name="projectPriority" value="important">
-                <label for="priorityImportant">Important</label>
-                
-                <input type="radio" id="priorityRelaxed" name="projectPriority" value="relaxed">
-                <label for="priorityRelaxed">Relaxed</label>
-
-                <div class="showError" id="priorityError"></div>
-            </fieldset>
-            <button type="submit">Submit</button>
-        </form>
-    `;
-
-    body.appendChild(projectInputDialog);
     projectInputDialog.showModal();
 }
 
-projectInputDialog.addEventListener("click", e => {
-      const dialogDimensions = projectInputDialog.getBoundingClientRect();
-      if (
-        e.clientX < dialogDimensions.left ||
-        e.clientX > dialogDimensions.right ||
-        e.clientY < dialogDimensions.top ||
-        e.clientY > dialogDimensions.bottom
-      ) {
-        projectInputDialog.close();
-      }
-    });
 
+const projectForm = document.querySelector('#projectForm');
+projectForm.addEventListener('submit', e => {
+  e.preventDefault()
     
+    const projectName = document.querySelector('#projectName').value;
+    const projectDescription = document.querySelector('#projectDescription').value;
+    const projectDueDate = document.querySelector('#projectDueDate').value;
+    const projectPriority = document.querySelectorAll('input[name="projectPriority"]');
+    let priorityLvl = '';
+    for (const radio of projectPriority) {
+        if (radio.checked) {
+            priorityLvl = radio.value;
+            break;
+        }
+    }
+    projectInputDialog.close()
+    console.log({ProjectName: projectName, projectDescription:projectDescription, projectDueDate: projectDueDate, projectPriority: priorityLvl});
+    console.log(projectsArray);
+
+    newProject(projectName, projectDescription, projectDueDate, priorityLvl);
+
+
+    return {ProjectName: projectName, projectDescription:projectDescription,  projectDueDate: projectDueDate, projectPriority: priorityLvl};
+  });
+
+  document.querySelector('#cancelForm').addEventListener('click', e => {
+    e.preventDefault();
+    projectForm.reset();
+    projectInputDialog.close();
+  });
+
+
+  projectInputDialog.addEventListener("click", e => {
+        const dialogDimensions = projectInputDialog.getBoundingClientRect();
+        if (
+          e.clientX < dialogDimensions.left ||
+          e.clientX > dialogDimensions.right ||
+          e.clientY < dialogDimensions.top ||
+          e.clientY > dialogDimensions.bottom
+        ) {
+          projectInputDialog.close();
+        }
+      });

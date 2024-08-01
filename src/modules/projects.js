@@ -13,5 +13,3 @@ export default function newProject(projectName, description, dueDate, priorityLv
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
 }
-
-newProject("James' Thesis", "Create a Thesis for my Finals", "March 12, 2025", "Urgent");
