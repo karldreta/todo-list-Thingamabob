@@ -54,20 +54,26 @@
     </main>
     
 <!-- Dialogs -->
-    <dialog id="projectInputDialog">
+    <dialog open id="projectInputDialog">
         <h2>Add New Project</h2>
         <form action="#" id="projectForm">
-            <label for="projectName">Project Name:</label>
-            <input type="text" id="projectName">
-            <div class="showError" id="nameError"></div>
+            <div class="inputContainer">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName">
+                <div class="showError" id="nameError"></div>
+            </div>
         
-            <label for="projectDescription">Description:</label>
-            <input type="text" id="projectDescription">
-            <div class="showError" id="descriptionError"></div>
+            <div class="inputContainer">
+                <label for="projectDescription">Description:</label>
+                <input type="text" id="projectDescription">
+                <div class="showError" id="descriptionError"></div>
+            </div>
         
-            <label for="projectDueDate">Due Date:</label>
-            <input type="datetime-local" id="projectDueDate">
-            <div class="showError" id="dueDateError"></div>
+            <div class="inputContainer">
+                <label for="projectDueDate">Due Date:</label>
+                <input type="datetime-local" id="projectDueDate">
+                <div class="showError" id="dueDateError"></div>
+            </div>
         
             <fieldset>
                 <legend>Priority Level:</legend>
@@ -83,8 +89,10 @@
 
                 <div class="showError" id="priorityError"></div>
             </fieldset>
-            <button type="submit">Submit</button>
-            <button id="cancelForm">Cancel</button>
+            <div class="inputContainer forButtons">
+                <button type="submit">Submit</button>
+                <button id="cancelForm">Cancel</button>
+            </div>
         </form>
     </dialog>
 
