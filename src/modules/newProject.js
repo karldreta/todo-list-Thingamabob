@@ -9,31 +9,40 @@ export default function addNewProject () {
 }
 
 
+
 const projectForm = document.querySelector('#projectForm');
 projectForm.addEventListener('submit', e => {
   e.preventDefault()
-    
-    const projectName = document.querySelector('#projectName').value;
-    const projectDescription = document.querySelector('#projectDescription').value;
-    const projectDueDate = document.querySelector('#projectDueDate').value;
-    const projectPriority = document.querySelectorAll('input[name="projectPriority"]');
-    let priorityLvl = '';
+  
+  
+  const projectNameVal = document.querySelector('#projectName').value;
+  const projectDescriptionVal = document.querySelector('#projectDescription').value;
+  const projectDueDateVal = document.querySelector('#projectDueDate').value;
+  const projectPriority = document.querySelectorAll('input[name="projectPriority"]');
+  let priorityLvl = '';
     for (const radio of projectPriority) {
         if (radio.checked) {
             priorityLvl = radio.value;
             break;
         }
     }
-    projectInputDialog.close()
-    console.log({ProjectName: projectName, projectDescription:projectDescription, projectDueDate: projectDueDate, projectPriority: priorityLvl});
-    console.log(projectsArray);
 
-    newProject(projectName, projectDescription, projectDueDate, priorityLvl);
+    if (validateInputs(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl)) {
+      projectInputDialog.close()
+      console.log({ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl});
+      console.log(projectsArray);
+  
+      newProject(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl);
+  
+  
+      return {ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl};
 
+    }
 
-    return {ProjectName: projectName, projectDescription:projectDescription,  projectDueDate: projectDueDate, projectPriority: priorityLvl};
   });
 
+
+// Closing the form
   document.querySelector('#cancelForm').addEventListener('click', e => {
     e.preventDefault();
     projectForm.reset();
@@ -49,6 +58,63 @@ projectForm.addEventListener('submit', e => {
           e.clientY < dialogDimensions.top ||
           e.clientY > dialogDimensions.bottom
         ) {
+          projectForm.reset();
           projectInputDialog.close();
         }
       });
+
+// Below: Validation
+
+function validateInputs(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl) {
+    const projectName = document.querySelector('#projectName');
+    const projectDescription = document.querySelector('#projectDescription');
+    const projectDueDate = document.querySelector('#projectDueDate');
+
+        let isValid = true;
+
+        if (projectNameVal === "") {
+          displayError(projectName, "Required");
+          isValid = false;
+        } else if (projectNameVal.length > 30) {
+          displayError(projectName, "Project Name too long");
+          isValid = false;
+        } else {
+          displaySuccess(projectName);
+        }
+
+        if (projectDescriptionVal === "") {
+          displayError(projectDescription, "Required");
+          isValid = false;
+        } else {
+          displaySuccess(projectDescription);
+        }
+
+        if (projectDueDateVal === "") {
+          displayError(projectDueDate, "Required");
+          isValid = false;
+        } else {
+          displaySuccess(projectDueDate);
+        }
+
+        if (!priorityLvl) {
+          displayError(document.querySelector('fieldset'), "Required");
+          isValid = false;
+         } else {
+          displaySuccess(document.querySelector('fieldset'));
+        }
+
+        return isValid;
+}
+
+
+function displayError(element, message) {
+  const inputContainer = element.closest('.inputContainer') || element.closest('fieldset');
+  const showEffect = inputContainer.querySelector('.showError');
+  showEffect.textContent = `*${message}`;
+}
+
+function displaySuccess(element) {
+  const inputContainer = element.closest('.inputContainer') || element.closest('fieldset');
+  const showEffect = inputContainer.querySelector('.showError');
+  showEffect.textContent = "";
+}

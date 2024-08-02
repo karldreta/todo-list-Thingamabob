@@ -13,3 +13,4 @@ export default function newProject(projectName, description, dueDate, priorityLv
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
 }
+
