@@ -9,7 +9,7 @@ export class MyProject {
     }
 }
 
-export default function newProject(projectName, description, dueDate, priorityLvl) {
+export default function addProject(projectName, description, dueDate, priorityLvl) {
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
 }

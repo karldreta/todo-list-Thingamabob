@@ -1,14 +1,10 @@
-import newProject, {projectsArray} from './projects.js';
-
-const newProjectBtn = document.querySelector('#newProjectBtn');
-newProjectBtn.addEventListener('click', addNewProject);
+import addProject, {projectsArray} from './projects.js';
 const projectInputDialog = document.querySelector('#projectInputDialog');
+
 
 export default function addNewProject () {
     projectInputDialog.showModal();
 }
-
-
 
 const projectForm = document.querySelector('#projectForm');
 projectForm.addEventListener('submit', e => {
@@ -32,7 +28,7 @@ projectForm.addEventListener('submit', e => {
       console.log({ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl});
       console.log(projectsArray);
   
-      newProject(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl);
+      addProject(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl);
   
   
       return {ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl};
