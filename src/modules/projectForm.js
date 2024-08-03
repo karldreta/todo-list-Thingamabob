@@ -1,4 +1,8 @@
-import addProject, {projectsArray} from './projects.js';
+// This is a module for creating the <dialog> and the <form> inside it.
+// Included here: is the Validation, the opening/closing of the <dialog>.
+
+
+import addProject, {projectsArray} from './projectManager.js';
 const projectInputDialog = document.querySelector('#projectInputDialog');
 
 
