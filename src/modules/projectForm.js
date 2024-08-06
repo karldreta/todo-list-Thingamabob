@@ -41,6 +41,55 @@ projectForm.addEventListener('submit', e => {
 
   });
 
+// Below Sample For styling: To Delete >>>
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+// addProject('Synthesis Essay', 'A synthesis', "2024-08-07T22:31", "urgent");
+
+// Later delete above this line >>
 
 // Closing the form
   document.querySelector('#cancelForm').addEventListener('click', e => {

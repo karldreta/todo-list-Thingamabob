@@ -5,10 +5,10 @@ export default function addToContent(projectName, description, dueDate, priority
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('projectContainer');
     projectContainer.innerHTML = `
-        <p>${projectName}</p>
-        <p>${description}</p>
-        <p>${dueDate}</p>
-        <p>${priorityLvl}</p>
+        <p class="todoName">Todo: ${projectName}</p>
+        <p class="todoDescription">"${description}"</p>
+        <p class="todoDueDate"><span>Due Date:</span>${dueDate}</p>
+        <p class="todoPriority"><span>Priority:</span>${priorityLvl}</p>
     `
     main.appendChild(projectContainer);
 }
