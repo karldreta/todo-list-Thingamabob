@@ -1,4 +1,4 @@
-import { expandCard } from './todoCardFuncs.js';
+import { expandCard, expandCardFromNav } from './todoCardFuncs.js';
 
 const mainContent = document.querySelector('#content');
 
@@ -42,6 +42,12 @@ export default function addToContent(projectName, description, dueDate, priority
     const navigateToProject = document.createElement('div');
     navigateToProject.classList.add('navigateToProject');
     navigateToProject.innerHTML = `<h3>${projectName}</h3>`;
+    navigateToProject.dataset.projectName = projectName;
+    navigateToProject.dataset.description = description;
+    navigateToProject.dataset.dueDate = dueDate;
+    navigateToProject.dataset.priorityLvl = priorityLvl;
+
+    navigateToProject.addEventListener('click', expandCardFromNav);
 
 
     navProjects.appendChild(navigateToProject);
