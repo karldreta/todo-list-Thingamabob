@@ -1,4 +1,5 @@
 import addToContent from "./uiUtils";
+import { format, parseISO, addDays } from 'date-fns';
 
 export const projectsArray = [];
 
@@ -6,7 +7,7 @@ export class MyProject {
     constructor (projectName, description, dueDate, priorityLvl) {
         this.projectName = projectName;
         this.description = description;
-        this.dueDate = dueDate;
+        this.dueDate = format(parseISO(dueDate), "d MMM yyyy, HH:mm");
         this.priorityLvl = priorityLvl;
     }
 }
@@ -14,6 +15,6 @@ export class MyProject {
 export default function addProject(projectName, description, dueDate, priorityLvl) {
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
-    addToContent(projectName, description, dueDate, priorityLvl);
+    addToContent(projectName, description, project.dueDate, priorityLvl);
 }
 

@@ -24,6 +24,9 @@ body {
     border: 1px solid red;
     grid-row: 1 / 3;
     grid-column: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #sideBar h2 {
@@ -111,8 +114,9 @@ body {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     grid-template-rows: repeat(auto, minmax(170px, 1fr));
+    justify-content: center;
     justify-items: center;
     align-items: baseline;
     align-content: baseline;
@@ -122,25 +126,142 @@ body {
 }
 
 .projectContainer {
+    box-sizing: border-box;
     border: 1px solid black;
     border-radius: 5px;
     width: 270px;
     height: 170px;
+    padding: 7px;
+    padding-bottom: 10px;
+    box-shadow: 1px 1px 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* overflow: hidden; */
 }
 
-.projectContainer > p {
-    margin: 0;
-    pad: 0;
+.projectContainer:hover {
+    transform: scale(101%);
 }
+
+.projectContainer p.todoDescription,
+.projectContainer p.todoDueDate{
+    margin: 0;
+}
+
 
 .projectContainer > p.todoName {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 5px 2px 0 2px;
     text-align: left;
     font-size: 20px;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    width: 100%; 
 }
 
-p.todoName > span {
-
+.projectContainer p.todoDescription {
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it takes the full width of the container */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis when text overflows */
+    display: -webkit-box; /* Use flexbox for multiline truncation */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Orient the box vertically */
+    line-height: 1.4; /* Adjust line height if needed */
 }
+
+.projectContainer p.todoDueDate > span {
+    font-weight: 700;
+}
+
+/* .projectContainer p.todoDueDate{
+    margin-bottom: 20px;
+} */
+
+
+.projectContainer .todoIcons {
+    margin: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoIcons > .todoClickables {
+    display: flex;
+    gap: 15px;
+}
+
+.todoClickables > i {
+    cursor: pointer;
+}
+
+/* Priority Tooltips */
+.priorityIcon {
+    position: relative;
+    display: inline-block;
+}
+
+.priorityIcon i::after {
+    content: attr(data-tooltip);
+    visibility: hidden;
+    font-size: 8px;
+    width: 65px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-100%)
+                translateX(-60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.priorityIcon:hover i::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Navigate to Projects */
+
+#navProjects {
+    /* border: 1px solid red; */
+    height: 100%;
+    overflow-y: auto;
+}
+
+.navigateToProject {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.479);
+    color: black;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.navigateToProject h3 {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Scroll bar */
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+  }
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+*::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners */
+  }
