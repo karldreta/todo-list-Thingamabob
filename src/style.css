@@ -164,23 +164,18 @@ body {
 
 .projectContainer p.todoDescription {
     margin-bottom: 20px;
-    width: 100%; /* Ensure it takes the full width of the container */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Show ellipsis when text overflows */
-    display: -webkit-box; /* Use flexbox for multiline truncation */
-    -webkit-line-clamp: 2; /* Limit to 2 lines */
-    -webkit-box-orient: vertical; /* Orient the box vertically */
-    line-height: 1.4; /* Adjust line height if needed */
+    width: 100%; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    line-height: 1.4; 
 }
 
 .projectContainer p.todoDueDate > span {
     font-weight: 700;
 }
-
-/* .projectContainer p.todoDueDate{
-    margin-bottom: 20px;
-} */
-
 
 .projectContainer .todoIcons {
     margin: 0px 10px;
@@ -241,11 +236,18 @@ body {
     color: black;
     margin: 10px;
     margin-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .navigateToProject h3 {
     margin: 0;
     padding: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    width: 100%; 
 }
 
 
