@@ -1,3 +1,5 @@
+import { expandCard } from './todoCardFuncs.js';
+
 const mainContent = document.querySelector('#content');
 
 export default function addToContent(projectName, description, dueDate, priorityLvl) {
@@ -30,8 +32,8 @@ export default function addToContent(projectName, description, dueDate, priority
                 ${priorityIcon}
             </div>
             <div class="todoClickables">
-                <i class="fa-solid fa-expand"></i>
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-expand expandCard"></i>
+                <i class="fa-solid fa-trash deleteCard"></i>
             </div>
         </div>
     `
@@ -44,4 +46,8 @@ export default function addToContent(projectName, description, dueDate, priority
 
     navProjects.appendChild(navigateToProject);
     main.appendChild(projectContainer);
+
+    // For expanding each card
+    const expandCardBtns = document.querySelectorAll('.expandCard');
+    expandCardBtns.forEach(icon => icon.addEventListener('click', expandCard));
 }
