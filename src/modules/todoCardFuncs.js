@@ -28,7 +28,7 @@ export function expandCard(e) {
     <hr>
     <p>${expandedTodoDescription}</p>
     <div class="expandedPriorityLvlContainer">
-    <span>${expandedTodoPriority}</span> | <p>${expandedTodoDueDate}</p>
+     <span class="bold">${expandedTodoPriority}</span> | <p>${expandedTodoDueDate}</p>
     </div>
    `
    
@@ -58,11 +58,11 @@ export function expandCardFromNav(e) {
         <i class="fa-solid fa-pen-to-square editCurrentProject"></i>
         <i class="fa-solid fa-trash deleteCurrentProject"></i>
     </div>
-    <h2>${expandedTodoTitle}</h2>
+    <h2>Todo: ${expandedTodoTitle}</h2>
     <hr>
-    <p>${expandedTodoDescription}</p>
+    <p>"${expandedTodoDescription}"</p>
     <div class="expandedPriorityLvlContainer">
-    <span>${expandedTodoPriority}</span> | <p>${expandedTodoDueDate}</p>
+    <span class="bold">${expandedTodoPriority}</span> | <p><span>Due Date:</span> ${expandedTodoDueDate}</p>
     </div>
    `
    

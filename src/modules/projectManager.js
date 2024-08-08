@@ -15,6 +15,7 @@ export class MyProject {
 export default function addProject(projectName, description, dueDate, priorityLvl) {
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
-    addToContent(projectName, description, project.dueDate, priorityLvl);
+    const projectIndex = projectsArray.indexOf(project); // Grab the Index
+    addToContent(projectName, description, project.dueDate, priorityLvl, projectIndex);
 }
 

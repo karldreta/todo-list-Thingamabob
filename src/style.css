@@ -298,7 +298,7 @@ main {
     gap: 20px;
 }
 
-#expandedContent.expandedCard .expandedPriorityLvlContainer span {
+#expandedContent.expandedCard .expandedPriorityLvlContainer span.bold {
     align-self: center;
     font-weight: bold;
 }
