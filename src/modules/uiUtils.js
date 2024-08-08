@@ -1,11 +1,12 @@
-import { expandCard, expandCardFromNav } from './todoCardFuncs.js';
+import { deleteCard, expandCard, expandCardFromNav } from './todoCardFuncs.js';
 
 const mainContent = document.querySelector('#content');
 
-export default function addToContent(projectName, description, dueDate, priorityLvl) {
+export default function addToContent(projectName, description, dueDate, priorityLvl, projectIndex) {
     const main = document.querySelector('#content');
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('projectContainer');
+    projectContainer.dataset.projectIndex = projectIndex;
 
     // Add priority levels as Icons
     let priorityIcon = '';
@@ -46,6 +47,8 @@ export default function addToContent(projectName, description, dueDate, priority
     navigateToProject.dataset.description = description;
     navigateToProject.dataset.dueDate = dueDate;
     navigateToProject.dataset.priorityLvl = priorityLvl;
+    navigateToProject.dataset.projectIndex = projectIndex;
+
 
     navigateToProject.addEventListener('click', expandCardFromNav);
 
@@ -56,4 +59,8 @@ export default function addToContent(projectName, description, dueDate, priority
     // For expanding each card
     const expandCardBtns = document.querySelectorAll('.expandCard');
     expandCardBtns.forEach(icon => icon.addEventListener('click', expandCard));
+
+    // For expanding each card
+    const deleteCardBtns = document.querySelectorAll('.deleteCard');
+    deleteCardBtns.forEach(icon => icon.addEventListener('click', deleteCard));
 }

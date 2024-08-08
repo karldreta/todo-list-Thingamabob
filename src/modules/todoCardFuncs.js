@@ -12,6 +12,8 @@ export function expandCard(e) {
     // Grab the Necessary variables
     const projectContainer = e.target.closest('.projectContainer');
     // console.log(projectContainer);
+    const projectIndex = projectContainer.dataset.projectIndex;
+
     
     const expandedTodoTitle = projectContainer.querySelector('.todoName').textContent;
     const expandedTodoDescription = projectContainer.querySelector('.todoDescription').textContent;
@@ -38,6 +40,10 @@ export function expandCard(e) {
     mainContent.style.display = 'grid';
     expandedContent.classList.remove('expandedCard');
    }));
+
+   // Delete button when expanded
+   const delFromProject = document.querySelectorAll('.deleteCurrentProject');
+   delFromProject.forEach(icon => icon.addEventListener('click', () => deleteCardFromNav(projectIndex)));
 }
 
 export function expandCardFromNav(e) {
@@ -46,6 +52,7 @@ export function expandCardFromNav(e) {
     const expandedTodoDescription = navigateToProject.dataset.description;
     const expandedTodoDueDate = navigateToProject.dataset.dueDate;
     const expandedTodoPriority = navigateToProject.dataset.priorityLvl;
+    const projectIndex = navigateToProject.dataset.projectIndex;
 
     // Just do the same thing as above
     mainContent.style.display = 'none';
@@ -72,4 +79,18 @@ export function expandCardFromNav(e) {
     mainContent.style.display = 'grid';
     expandedContent.classList.remove('expandedCard');
    }));
+
+   // Delete Projects when clicked from nav
+   const delFromProject = document.querySelectorAll('.deleteCurrentProject');
+   delFromProject.forEach(icon => icon.addEventListener('click', () => deleteCardFromNav(projectIndex)));
+}
+
+export function deleteCard(e) {
+    const projectContainer = e.target.closest('.projectContainer');
+    const projectIndex = projectContainer.dataset.projectIndex;
+    console.log(projectIndex);
+}
+
+export function deleteCardFromNav(projectIndex) {
+    console.log(projectIndex);
 }
