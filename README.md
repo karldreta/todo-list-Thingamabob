@@ -20,7 +20,7 @@
 
 ## Obstacles and Eureka moment:
 
-I came across a major flaw in my entire code base, I was about to add a `delete` function for each project, but first I had to log each of the Index numbers, It was then that I realized that I was passing down different types of data:
+I came across a major flaw in my entire code base, I was about to add a `delete` function for each project, but first I had to log each of the index numbers for reference, It was then that I realized that I was passing down different types of data:
 
 ``` JavaScript
     const projectContainer = document.createElement('div');
@@ -31,7 +31,7 @@ I came across a major flaw in my entire code base, I was about to add a `delete`
     const navigateToProject = document.createElement('div');
     navigateToProject.dataset.projectIndex = projectIndex;
 ```
-This approach resulted in the creation of duplicate versions of each DOM elements and because of that I had to handle the `expand` differently based on whether it was triggered from the **card** or from the **navPanel**:
+This approach resulted in the creation of duplicate versions of each DOM elements and because of that I had to handle the `expand` differently depending on whether it was triggered from the **card** or from the **navPanel**:
 
 ```JavaScript
     // Like this
@@ -45,6 +45,8 @@ Having two identical displays led to redundancy. Deleting a project from the **c
 ### **💡** Eureka Moment:
 
 After many attempts of branching out and refactoring my code, I eventually came up with an Idea: I could use `addDataToContainer()` to attach all relevant data (and methods) directly to `projectContainer`, and passed it down through out my code base where each module would reference the data inside `projectContainer`, essentially making the `projectContainer` a sort of memory card (cause its a card, Lol), avoiding duplication and creating consistency throughout the project. This approach streamlined my code significantly, eliminating a dozen lines and resolving the inconsistency issue. It was a true **Light Bulb** moment.
+
+Edit: At work, I came up with an Idea to attach the data and methods directly at the class (because that's what it supposed to be, I think), I attached everything at the class/constructor and passed the `Project`, this ensures a more consistent flow of data where each DOM elements would directly reference the `Project`. Also, it's no longer necessary to keep the `addDataToContainer`.
 
 
 ### Resources:

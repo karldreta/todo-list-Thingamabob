@@ -1,10 +1,8 @@
-import { projectsArray } from "./projectManager";
-
 const mainContent = document.querySelector('#content');
 const expandedContent = document.querySelector('#expandedContent');
 
 // Unified function to handle expansion of cards and nav items
-export function expandContent(projectContainer) {
+export function expandContent(Project) {
     mainContent.style.display = 'none';
     expandedContent.style.display = 'flex';
     expandedContent.classList.add('expandedCard');
@@ -15,11 +13,11 @@ export function expandContent(projectContainer) {
             <i class="fa-solid fa-pen-to-square editCurrentProject"></i>
             <i class="fa-solid fa-trash deleteCard"></i>
         </div>
-        <h2>${projectContainer.dataset.projectName}</h2>
+        <h2>${Project.projectName}</h2>
         <hr>
-        <p>"${projectContainer.dataset.description}"</p>
+        <p>"${Project.description}"</p>
         <div class="expandedPriorityLvlContainer">
-            <span class="bold">${projectContainer.dataset.priorityLvl}</span> | <p>${projectContainer.dataset.dueDate}</p>
+            <span class="bold">${Project.priorityLvl}</span> | <p>${Project.dueDate}</p>
         </div>
     `;
 
@@ -29,7 +27,7 @@ export function expandContent(projectContainer) {
     // Attach delete listener to the delete button in the expanded view
     const deleteCardBtn = expandedContent.querySelector('.deleteCard');
     deleteCardBtn.addEventListener('click', function() {
-        projectContainer.deleteCard();
+        Project.deleteCard();
     });
 }
 
@@ -43,6 +41,6 @@ function attachBackToContent() {
     }));
 }
 
-export function deleteCard(projectContainer) {
-    console.log(projectContainer.dataset.projectIndex);
+export function deleteCard(Project) {
+    console.log(Project.projectIndex);
 }
