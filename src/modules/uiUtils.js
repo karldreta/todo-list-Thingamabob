@@ -2,7 +2,7 @@ import { deleteCard, expandCard, expandCardFromNav } from './todoCardFuncs.js';
 
 const mainContent = document.querySelector('#content');
 
-export default function addToContent(projectName, description, dueDate, priorityLvl, projectIndex) {
+export default function addDataToContainer(projectName, description, dueDate, priorityLvl, projectIndex) {
     const main = document.querySelector('#content');
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('projectContainer');

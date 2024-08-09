@@ -1,4 +1,4 @@
-import addToContent from "./uiUtils";
+import addDataToContainer from "./uiUtils";
 import { format, parseISO, addDays } from 'date-fns';
 
 export const projectsArray = [];
@@ -16,6 +16,6 @@ export default function addProject(projectName, description, dueDate, priorityLv
     const project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(project);
     const projectIndex = projectsArray.indexOf(project); // Grab the Index
-    addToContent(projectName, description, project.dueDate, priorityLvl, projectIndex);
+    addDataToContainer(projectName, description, project.dueDate, priorityLvl, projectIndex);
 }
 
