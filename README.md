@@ -18,9 +18,9 @@
 * **Modularize the codebase:** Break down the code into reusable, self-contained modules, ensuring a clean, scalable, and manageable project structure.
 
 
-## Obstacles and Eurika moment:
+## Obstacles and Eureka moment:
 
-I came across a major flaw in my entire code base, I was about to add a `delete` function for each project, but first I had to log each of the Index numbers, It was then that I realized that I was passing down different kinds of data:
+I came across a major flaw in my entire code base, I was about to add a `delete` function for each project, but first I had to log each of the Index numbers, It was then that I realized that I was passing down different types of data:
 
 ``` JavaScript
     const projectContainer = document.createElement('div');
@@ -31,20 +31,20 @@ I came across a major flaw in my entire code base, I was about to add a `delete`
     const navigateToProject = document.createElement('div');
     navigateToProject.dataset.projectIndex = projectIndex;
 ```
-Essentially creating two identical (though duplicate) versions of each DOM element and because of that I had to call the `expand` function in two different ways, depending on where they were called either from the `card` or from the `navPanel`:
+This approach resulted in the creation of duplicate versions of each DOM elements and because of that I had to handle the `expand` differently based on whether it was triggered from the **card** or from the **navPanel**:
 
 ```JavaScript
     // Like this
     expandCard(e) // expands the card
 
     // and
-    expandCardFromNav(e) // expands the card from the nav, but with the data from the `navigateToProject`
+    expandCardFromNav(e) // Expands the card from the navigation panel, using data from navigateToProject
 ```
-I had two identical displays, exact duplicates of each other. When I delete from the `card`, I could still expand it from the `navPanel`.
+Having two identical displays led to redundancy. Deleting a project from the **card** still allowed it to be expanded from the **navigation panel**.
 
-### **💡** Eurika Moment:
+### **💡** Eureka Moment:
 
-After many attempts of branching out and trying to refactor my code, I eventually came up with an Idea to attach all the data (even methods) directly in the `projectContainer`, and passed it down through out my code base where each module would reference the data inside `projectContainer`, essentially making the `projectContainer` a sort of memory card, avoiding duplication and creating consistency throughout the project --- it was a **Light Bulb** moment.
+After many attempts of branching out and refactoring my code, I eventually came up with an Idea: I could use `addDataToContainer()` to attach all relevant data (and methods) directly to `projectContainer`, and passed it down through out my code base where each module would reference the data inside `projectContainer`, essentially making the `projectContainer` a sort of memory card (cause its a card, Lol), avoiding duplication and creating consistency throughout the project. This approach streamlined my code significantly, eliminating a dozen lines and resolving the inconsistency issue. It was a true **Light Bulb** moment.
 
 
 ### Resources:
