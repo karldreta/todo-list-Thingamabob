@@ -30,9 +30,6 @@ projectForm.addEventListener('submit', e => {
     if (validateInputs(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl)) {
       projectInputDialog.close()
 
-      // console.log({ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl});
-      // console.log(projectsArray);
-  
       addProject(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl);
   
   

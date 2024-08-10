@@ -1,3 +1,5 @@
+import { projectsArray } from "./projectManager";
+
 const mainContent = document.querySelector('#content');
 const expandedContent = document.querySelector('#expandedContent');
 
@@ -28,6 +30,8 @@ export function expandContent(Project) {
     const deleteCardBtn = expandedContent.querySelector('.deleteCard');
     deleteCardBtn.addEventListener('click', function() {
         Project.deleteCard();
+        expandedContent.style.display = 'none';
+        mainContent.style.display = 'grid';
     });
 }
 
@@ -42,5 +46,17 @@ function attachBackToContent() {
 }
 
 export function deleteCard(Project) {
-    console.log(Project.projectIndex);
+    const navProjects = document.querySelector('#navProjects');
+    projectsArray.splice(Project.projectIndex, 1);
+
+    const navProjectToRemove = Array.from(navProjects.querySelectorAll('.navigateToProject')).find(element => 
+        element.dataset.projectIndex == Project.projectIndex
+    );
+
+    const cardToRemove = Array.from(mainContent.querySelectorAll('.projectContainer')).find(element => 
+        element.dataset.projectIndex == Project.projectIndex
+    );
+    
+    navProjects.removeChild(navProjectToRemove);
+    mainContent.removeChild(cardToRemove);
 }

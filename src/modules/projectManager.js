@@ -2,7 +2,7 @@ import addDataToContainer from "./uiUtils";
 import { deleteCard, expandContent } from './todoCardFuncs.js';
 import { format, parseISO, addDays } from 'date-fns';
 
-const projectsArray = [];
+export const projectsArray = [];
 
 export class MyProject {
     constructor (projectName, description, dueDate, priorityLvl) {
@@ -20,8 +20,7 @@ export class MyProject {
 export default function addProject(projectName, description, dueDate, priorityLvl) {
     const Project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(Project);
-    const projectIndex = projectsArray.indexOf(Project); // Grab the Index and attach directly to Project
-    Project.projectIndex = projectIndex;
+    Project.projectIndex = projectsArray.indexOf(Project); // Grab the Index and attach directly to Project
     addDataToContainer(Project);
 }
 

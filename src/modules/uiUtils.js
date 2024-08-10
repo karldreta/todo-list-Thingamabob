@@ -1,5 +1,6 @@
 export default function addDataToContainer(Project) {
     const projectContainer = document.createElement('div');
+    projectContainer.dataset.projectIndex = Project.projectIndex;
     projectContainer.classList.add('projectContainer');
     const mainContent = document.querySelector('#content');
        // Add priority levels as Icons
@@ -48,14 +49,14 @@ export default function addDataToContainer(Project) {
        });
 }
 
-function addProjectToNav(Project) {
+export function addProjectToNav(Project) {
     const navProjects = document.querySelector('#navProjects');
     const navigateToProject = document.createElement('div');
     navigateToProject.classList.add('navigateToProject');
+    navigateToProject.dataset.projectIndex = Project.projectIndex;
     navigateToProject.innerHTML = `<h3>${Project.projectName}</h3>`;
     navProjects.appendChild(navigateToProject);
     navigateToProject.addEventListener('click', function() {
         Project.expandContent();
     });
-    
 }
