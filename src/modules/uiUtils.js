@@ -18,7 +18,7 @@ export default function addDataToContainer(Project) {
        }
    
        projectContainer.innerHTML = `
-           <p class="todoName">Todo: ${Project.projectName}</p>
+           <p class="todoName">${Project.projectName}</p>
            <div class="todoDetails">
                <p class="todoDescription">"${Project.description}"</p>
                <p class="todoDueDate"><span>Due Date:</span> ${Project.dueDate}</p>

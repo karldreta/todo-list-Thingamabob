@@ -1,5 +1,5 @@
 import addDataToContainer from "./uiUtils";
-import { deleteCard, expandContent } from './todoCardFuncs.js';
+import { deleteCard, expandContent, addTodo} from './expandedCardFuncs.js';
 import { format, parseISO, addDays } from 'date-fns';
 
 export const projectsArray = [];
@@ -14,6 +14,7 @@ export class MyProject {
         // Methods to do with the card
         this.expandContent = () => {expandContent(this);};
         this.deleteCard = () => {deleteCard(this);};
+        this.addTodo = () => {addTodo(this)};
     }
 }
 
