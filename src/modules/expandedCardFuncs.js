@@ -72,16 +72,6 @@ export function deleteCard(Project) {
     navProjects.removeChild(navProjectToRemove);
     mainContent.removeChild(cardToRemove);
 }
-            Hey guys, I'm on Todo list application where each project can be expanded to show detailed information, including a section for adding todos. The issue I’m encountering is that when I add todos and then navigate back to the main content view, the todos are lost when I return to the expanded view.
-            Here’s an overview of what’s happening:
-
-            Adding Todos: I have a function addTodo() that creates a new editable todo item and appends it to a section within the expanded view of a project.
-            Navigating Views: When navigating from the expanded view back to the main content view, I use the attachBackToContent() function to hide the expanded view and show the main content.
-            Problem: After navigating back to the main content and then returning to the expanded view, the previously added todos are no longer there.
-
-            Questions:
-            Why are the added todos disappearing when I navigate back to the expanded view?
-            How can I make sure that the todos added to the expanded view stay across view transitions?
 
 export function addTodo(Project) {
     Project.editableContent = Project.expandedContent.querySelector('.editableContent');
