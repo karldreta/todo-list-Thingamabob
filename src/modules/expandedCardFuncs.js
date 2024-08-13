@@ -1,4 +1,5 @@
 import { projectsArray } from "./projectManager";
+import { addNewTodo } from "./projectForm";
 
 const mainContent = document.querySelector('#content');
 
@@ -70,32 +71,3 @@ export function deleteCard(Project) {
     navProjects.removeChild(navProjectToRemove);
     mainContent.removeChild(cardToRemove);
 }
-
-
-// The Todo item Input dialog
-
-const todoItemModal = document.querySelector('#todoItemModal');
-let currentProject; // Variable to store the current project instance
-
-export function addNewTodo(Project) {
-    currentProject = Project; // Store the current project instance
-    todoItemModal.showModal(); // Show the modal to add a new todo
-}
-
-const todoItemForm = document.querySelector('#todoItemForm'); 
-todoItemForm.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    if (currentProject) { // Check if the current project is set
-        const todoItemValue = document.querySelector('#todoItemInput').value;
-        if (todoItemValue.trim() !== '') { // Ensure input is not empty
-            currentProject.addTodo(todoItemValue);
-            todoItemModal.close(); // Close the modal after adding the todo
-            document.querySelector('#todoItemInput').value = ''; // Clear input field
-        } else {
-            console.error('Todo item cannot be empty.');
-        }
-    } else {
-        console.error('No project selected.');
-    }
-});

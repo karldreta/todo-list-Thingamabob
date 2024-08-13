@@ -91,6 +91,34 @@ addProject(
 
 // Later delete above this line >>
 
+// Below: Todo item Input dialog and Form
+
+const todoItemModal = document.querySelector('#todoItemModal');
+let currentProject; // Variable to store the current project instance, this is a way for us to reference what Project we are currently at inside the todoItemForm.
+
+export function addNewTodo(Project) {
+    currentProject = Project; // Store the current project instance
+    todoItemModal.showModal(); // Show the modal to add a new todo
+}
+
+const todoItemForm = document.querySelector('#todoItemForm'); 
+todoItemForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const todoItem = document.querySelector('#todoItemInput');
+    
+    if (currentProject) { // Check if the current project is set
+        const todoItemValue = document.querySelector('#todoItemInput').value;
+        clearTodoInputError()
+        if (todoItemValue.trim() !== '') { // Ensure input is not empty
+            currentProject.addTodo(todoItemValue);
+            todoItemModal.close();
+            document.querySelector('#todoItemInput').value = '';
+        } else {
+          displayError(todoItem, "Cannot be empty.");
+        }
+    }
+});
+
 // Closing the form
   document.querySelector('#cancelForm').addEventListener('click', e => {
     e.preventDefault();
@@ -155,6 +183,12 @@ function validateInputs(projectNameVal, projectDescriptionVal, projectDueDateVal
         return isValid;
 }
 
+// Function to clear previous error messages from the todo input
+function clearTodoInputError() {
+  const todoItemInput = document.querySelector('#todoItemInput');
+  const errorElement = todoItemInput.closest('.inputContainer').querySelector('.showError');
+  errorElement.textContent = "";
+}
 
 function displayError(element, message) {
   const inputContainer = element.closest('.inputContainer') || element.closest('fieldset');
