@@ -56,7 +56,7 @@
     </main>
     
 <!-- Dialogs -->
-    <dialog id="projectInputDialog">
+    <dialog id="projectInputDialog" class="modal">
         <h2>Add New Project</h2>
         <form action="#" id="projectForm">
             <div class="inputContainer">
@@ -97,13 +97,19 @@
             </div>
         </form>
     </dialog>
+    <dialog id="todoItemModal" class="modal">
+        <h2>Add Todo</h2>  
+        <form action="" id="todoItemForm">
+            <input type="text" id="todoItemInput">
+        </form>
+    </dialog>
 
 
 
     <!-- Templates to be Copied | Writing for Emmet, delete this After -->
-    <template>
+    <!-- <template>
         <h2>${expandedTodoTitle}</h2>
-    </template> 
+    </template>  -->
 
 </body>
 </html>

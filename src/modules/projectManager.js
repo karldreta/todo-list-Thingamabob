@@ -1,20 +1,25 @@
 import addDataToContainer from "./uiUtils";
-import { deleteCard, expandContent, addTodo} from './expandedCardFuncs.js';
+import { deleteCard, expandContent, addNewTodo} from './expandedCardFuncs.js';
 import { format, parseISO, addDays } from 'date-fns';
 
 export const projectsArray = [];
 
 export class MyProject {
-    constructor (projectName, description, dueDate, priorityLvl) {
+    constructor(projectName, description, dueDate, priorityLvl) {
         this.projectName = projectName;
         this.description = description;
         this.dueDate = format(parseISO(dueDate), "d MMM yyyy, HH:mm");
         this.priorityLvl = priorityLvl;
+        this.todos = []; // Array to store todos
+        this.projectIndex = null; // Will be set when added to projectsArray
 
-        // Methods to do with the card
-        this.expandContent = () => {expandContent(this);};
-        this.deleteCard = () => {deleteCard(this);};
-        this.addTodo = () => {addTodo(this)};
+        // Methods to manage the project
+        this.expandContent = () => expandContent(this);
+        this.deleteCard = () => deleteCard(this);
+        this.addTodo = (todoText) => {
+            this.todos.push(todoText);
+            this.expandContent(); 
+        };
     }
 }
 

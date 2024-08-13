@@ -1,19 +1,19 @@
 import { projectsArray } from "./projectManager";
 
 const mainContent = document.querySelector('#content');
-// const expandedContent = document.querySelector('#expandedContent');
 
 // Unified function to handle expansion of cards and nav items
 export function expandContent(Project) {
     mainContent.style.display = 'none';
-    Project.expandedContent = document.querySelector('#expandedContent');
+    const expandedContent = document.querySelector('#expandedContent');
     expandedContent.style.display = 'flex';
     expandedContent.classList.add('expandedCard');
 
+    // Build the HTML content including todos
     expandedContent.innerHTML = `
         <div class="expandedNavBtns">
             <i class="fa-solid fa-arrow-left backToContent"></i>
-            <i class="fa-solid fa-plus addTodo"></i>
+            <i class="fa-solid fa-plus addNewTodo"></i>
             <i class="fa-solid fa-trash deleteCard"></i>
         </div>
         <h2>${Project.projectName}</h2>
@@ -22,15 +22,13 @@ export function expandContent(Project) {
         <div class="expandedPriorityLvlContainer">
             <span class="bold">${Project.priorityLvl}</span> | <p>${Project.dueDate}</p>
         </div>
+        <div class="todoList">
+            ${Project.todos.map(todo => `<p class="eachTodos">${todo}</p>`).join('')}
+        </div>
     `;
 
-    const editableContent = document.createElement('section');
-    editableContent.classList.add('editableContent');
-    expandedContent.appendChild(editableContent);
-
-
     // Attach listeners for the back-to-content button
-    attachBackToContent(editableContent);
+    attachBackToContent(expandedContent);
 
     // Attach delete listener to the delete button in the expanded view
     const deleteCardBtn = expandedContent.querySelector('.deleteCard');
@@ -40,12 +38,12 @@ export function expandContent(Project) {
         mainContent.style.display = 'grid';
     });
 
-    const addTodoBtn = document.querySelector('.addTodo');
+    const addTodoBtn = document.querySelector('.addNewTodo');
     addTodoBtn.addEventListener('click', function () {
-        Project.addTodo()
-    })
-
+        addNewTodo(Project);
+    });
 }
+
 
 // Function to attach back-to-content listeners, used to avoid duplication
 function attachBackToContent(editableContent) {
@@ -73,12 +71,31 @@ export function deleteCard(Project) {
     mainContent.removeChild(cardToRemove);
 }
 
-export function addTodo(Project) {
-    Project.editableContent = Project.expandedContent.querySelector('.editableContent');
-    const editableText = document.createElement('div');
-    editableText.classList.add('editableText');
-    editableText.setAttribute('contenteditable', 'true');
-    editableText.textContent = `Hello, Type your Todo here`;
 
-    Project.editableContent.appendChild(editableText);
+// The Todo item Input dialog
+
+const todoItemModal = document.querySelector('#todoItemModal');
+let currentProject; // Variable to store the current project instance
+
+export function addNewTodo(Project) {
+    currentProject = Project; // Store the current project instance
+    todoItemModal.showModal(); // Show the modal to add a new todo
 }
+
+const todoItemForm = document.querySelector('#todoItemForm'); 
+todoItemForm.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    if (currentProject) { // Check if the current project is set
+        const todoItemValue = document.querySelector('#todoItemInput').value;
+        if (todoItemValue.trim() !== '') { // Ensure input is not empty
+            currentProject.addTodo(todoItemValue);
+            todoItemModal.close(); // Close the modal after adding the todo
+            document.querySelector('#todoItemInput').value = ''; // Clear input field
+        } else {
+            console.error('Todo item cannot be empty.');
+        }
+    } else {
+        console.error('No project selected.');
+    }
+});
