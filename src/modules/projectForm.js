@@ -4,6 +4,7 @@
 
 import addProject, {projectsArray} from './projectManager.js';
 const projectInputDialog = document.querySelector('#projectInputDialog');
+const AllDialog = document.querySelectorAll('.modal');
 
 
 export default function addNewProject () {
@@ -13,8 +14,6 @@ export default function addNewProject () {
 const projectForm = document.querySelector('#projectForm');
 projectForm.addEventListener('submit', e => {
   e.preventDefault()
-  
-  
   const projectNameVal = document.querySelector('#projectName').value;
   const projectDescriptionVal = document.querySelector('#projectDescription').value;
   const projectDueDateVal = document.querySelector('#projectDueDate').value;
@@ -114,7 +113,7 @@ todoItemForm.addEventListener('submit', e => {
             todoItemModal.close();
             document.querySelector('#todoItemInput').value = '';
         } else {
-          displayError(todoItem, "Cannot be empty.");
+          displayError(todoItem, "Cannot be empty");
         }
     }
 });
@@ -126,19 +125,18 @@ todoItemForm.addEventListener('submit', e => {
     projectInputDialog.close();
   });
 
-
-  projectInputDialog.addEventListener("click", e => {
-        const dialogDimensions = projectInputDialog.getBoundingClientRect();
-        if (
-          e.clientX < dialogDimensions.left ||
-          e.clientX > dialogDimensions.right ||
-          e.clientY < dialogDimensions.top ||
-          e.clientY > dialogDimensions.bottom
-        ) {
-          projectForm.reset();
-          projectInputDialog.close();
-        }
-      });
+  AllDialog.forEach(modal => modal.addEventListener("click", e => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      modal.querySelector('input').value = '';
+      modal.close();
+    }
+  }));
 
 // Below: Validation
 

@@ -24,7 +24,9 @@ export function expandContent(Project) {
             <span class="bold">${Project.priorityLvl}</span> | <p>${Project.dueDate}</p>
         </div>
         <div class="todoList">
-            ${Project.todos.map(todo => `<p class="eachTodos">${todo}</p>`).join('')}
+            <ul>
+            ${Project.todos.map(todo => `<li class="eachTodos">${todo}</li>`).join('')}
+            </ul>
         </div>
     `;
 
