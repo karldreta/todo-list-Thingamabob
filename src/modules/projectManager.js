@@ -1,6 +1,6 @@
 import addDataToContainer from "./uiUtils";
 import { deleteCard, expandContent} from './expandedCardFuncs.js';
-import { format, parseISO, addDays } from 'date-fns';
+import { format, parseISO} from 'date-fns';
 
 export const projectsArray = [];
 

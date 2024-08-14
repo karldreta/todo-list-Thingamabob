@@ -34,52 +34,20 @@ body {
     margin-left: 20px;
 }
 
-/* Below: Drop Down buttons */ 
+/* Below: Sort Buttons */ 
 
-.sortBtnContainer {
-    /* border: 2px solid red; */
+.sortBtnContainer { 
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.dropdown{
-    display: block;
-    width: 80%;
-}
-.dropdown button{
-    background-color: hsl(0, 0%, 80%);
-    color: black;
-    padding: 20px 25px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-}
-.dropdown a{
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    width: 100%;
-}
-.dropdown .dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: hsl(0, 0%, 95%);
-    min-width: 215px;
-    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
-}
-.dropdown:hover .dropdown-content{
-    display: block;
-}
-.dropdown:hover button{
-    background-color: hsl(0, 0%, 70%);
-}
-.dropdown a:hover{
-    background-color: hsl(0, 0%, 90%);
+.sortBtnContainer > button.sort {
+    width: 200px;
+    height: 30px;
 }
 
 /* Below: Form Dialog ----------------------------> */ 
