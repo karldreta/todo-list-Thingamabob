@@ -6,6 +6,8 @@
     --flame-fury: #B32C1A;
     --firewood-brown: #7A4B47;
     --charcoal-mid: #2A1617;
+
+    --flame-fury-bg: #ff44009f;
 }
 
 * {
@@ -33,24 +35,43 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 1px 1px 5px black;
+    background-color: var(--flame-fury-bg);
 }
 
 #header h1 {
     font-family: "Kanit", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin-left: 25px;
+    color: var(--radiant-yellow);
+}
+
+#newProjectBtn {
+    padding: 10px 25px;
+    border: none;
+    background-color: var(--charcoal-mid);
+    color: var(--radiant-yellow);
+    margin-right: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#newProjectBtn:hover {
+    transform: scale(105%);
 }
 
 /* Below: Sidebar */
 
 #sideBar {
     /* border-right: 4px solid var(--flame-fury); */
-    box-shadow: 1px 1px 5px var(--radiant-yellow);
+    box-shadow: 1px 1px 5px black;
     grid-row: 1 / 3;
     grid-column: 1;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--flame-fury-bg);
 }
 
 #sideBar h2 {
@@ -59,7 +80,7 @@ body {
     font-weight: 500;
     font-style: normal;
     font-size: 25px;
-    color: var(--flame-fury);
+    color: var(--radiant-yellow); 
 }
 
 /* Below: Sort Buttons */ 
@@ -189,6 +210,7 @@ main {
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: #fffc97b0;
 }
 
 #content {
@@ -218,6 +240,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--charcoal-mid);
+    color: whitesmoke;
 }
 
 .projectContainer:hover {
@@ -240,6 +264,7 @@ main {
     overflow: hidden; 
     text-overflow: ellipsis;
     width: 100%; 
+    color: var(--radiant-yellow);
 }
 
 .projectContainer p.todoDescription {
@@ -272,10 +297,26 @@ main {
     cursor: pointer;
 }
 
+.todoClickables > i:hover {
+    color: var(--radiant-yellow);
+}
+
 /* Priority Tooltips */
 .priorityIcon {
     position: relative;
     display: inline-block;
+}
+
+.priorityIcon > .fa-bolt-lightning { 
+    color: #F7E03C;
+}
+
+.priorityIcon > .fa-fire { 
+    color: #FF4500;
+}
+
+.priorityIcon > .fa-leaf { 
+    color: #228B22;
 }
 
 .priorityIcon i::after {
