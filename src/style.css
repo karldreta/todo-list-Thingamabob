@@ -8,6 +8,7 @@
     --charcoal-mid: #2A1617;
 
     --flame-fury-bg: #ff44009f;
+    --fiery-orange-bg: #fe7e42a6;
 }
 
 * {
@@ -35,8 +36,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 5px black;
-    background-color: var(--flame-fury-bg);
+    border-bottom: 5px solid var(--charcoal-mid);
 }
 
 #header h1 {
@@ -44,7 +44,7 @@ body {
     font-weight: 400;
     font-style: normal;
     margin-left: 25px;
-    color: var(--radiant-yellow);
+    color: var(--fiery-orange);
 }
 
 #newProjectBtn {
@@ -71,7 +71,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--flame-fury-bg);
 }
 
 #sideBar h2 {
@@ -80,7 +79,7 @@ body {
     font-weight: 500;
     font-style: normal;
     font-size: 25px;
-    color: var(--radiant-yellow); 
+    color: var(--fiery-orange); 
 }
 
 /* Below: Sort Buttons */ 
@@ -210,7 +209,6 @@ main {
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #fffc97b0;
 }
 
 #content {
@@ -386,6 +384,12 @@ main {
     display: none;
 }
 
+#expandedContent.expandedCard p, 
+#expandedContent.expandedCard span {
+    margin: 0;
+    text-align: justify;
+}
+
 #expandedContent.expandedCard {
     display: flex;
     flex-direction: column;
@@ -402,6 +406,16 @@ main {
     gap: 20px;
 }
 
+#expandedContent.expandedCard > h2 {
+    font-weight: 600;
+    width: 90%;
+}
+
+#expandedContent.expandedCard > p {
+    width: 90%;
+    font-size: 15px;
+}
+
 #expandedContent.expandedCard hr {
     width: 100%;
     border: 1px solid black;
@@ -411,10 +425,6 @@ main {
     cursor: pointer;
 }
 
-#expandedContent.expandedCard * {
-    margin: 0;
-    text-align: justify;
-}
 
 #expandedContent.expandedCard .expandedPriorityLvlContainer {
     display: flex;
@@ -424,6 +434,11 @@ main {
 #expandedContent.expandedCard .expandedPriorityLvlContainer span.bold {
     align-self: center;
     font-weight: bold;
+}
+
+.todoList {
+    margin-top: 50px;
+    width: 200px;
 }
 
 
