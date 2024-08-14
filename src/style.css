@@ -96,24 +96,88 @@ button.sort:hover {
 
 #projectInputDialog {
     width: 350px;
-    height: 500px;
+    height: 470px;
     padding: 15px;
-    border: 5px solid black;
+    border: 5px solid var(--charcoal-mid);
     border-radius: 20px;
 }
 
+
 #projectInputDialog > #projectForm {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     align-items: baseline;
     gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectForm > .inputContainer {
+    width: 100%;
+}
+
+#projectForm > .inputContainer label {
+    width: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+#projectForm > .inputContainer input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+#projectForm > .inputContainer input:focus {
+    border-color: var(--fiery-orange);
+}
+
+#projectForm > fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    align-self: baseline;
+    font-size: 16px;
+}
+
+#projectForm > fieldset > label {
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#projectForm > .inputContainer.forButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* border: 1px solid red; */
+}
+
+.inputContainer.forButtons button {
+    background-color: var(--charcoal-mid);
+    color: var(--radiant-yellow);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.inputContainer.forButtons button:hover {
+    transform: scale(105%);
+}
+
+button:active {
+    opacity: 0.7;
 }
 
 .showError {
     color: red;
     height: 20px;
     width: max-content;
+    font-size: 12px;
 }
 
 /* Main Project DOM */
