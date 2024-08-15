@@ -30,8 +30,7 @@ projectForm.addEventListener('submit', e => {
       projectInputDialog.close()
 
       addProject(projectNameVal, projectDescriptionVal, projectDueDateVal, priorityLvl);
-  
-  
+
       return {ProjectName: projectNameVal, projectDescription:projectDescriptionVal, projectDueDate: projectDueDateVal, projectPriority: priorityLvl};
 
     }

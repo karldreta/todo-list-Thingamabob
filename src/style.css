@@ -172,7 +172,6 @@ button.sort:hover {
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* border: 1px solid red; */
 }
 
 .inputContainer.forButtons button {
@@ -281,9 +280,11 @@ main {
 }
 
 .projectContainer .todoIcons {
+    /* border: 1px solid red; */
     margin: 0px 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .todoIcons > .todoClickables {
@@ -438,9 +439,36 @@ main {
 
 .todoList {
     margin-top: 50px;
-    width: 200px;
+    width: 90%;
 }
 
+/* todoItemModal */
+
+#todoItemModal {
+    height: fit-content;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+#todoItemModal #todoItemForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+}
+
+#todoItemModal #todoItemForm h2 {
+    margin-top: 0;
+}
+
+#todoItemModal #todoItemForm #todoItemInput {
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+#todoItemModal #todoItemForm #todoItemInput:focus {
+    border-bottom-color: var(--fiery-orange);
+}
 
 /* Scroll bar */
 *::-webkit-scrollbar {

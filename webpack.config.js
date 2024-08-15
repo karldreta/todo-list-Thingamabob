@@ -11,7 +11,7 @@ module.exports = {
         template: './src/template.html',
         filename: 'index.html',
         inject: 'head',
-        scriptLoading: 'defer',
+        scriptLoading: 'module',
     }),
     new FaviconsWebpackPlugin({
       logo: './src/imgs/favicon_io_title/favicon-16x16.png',
