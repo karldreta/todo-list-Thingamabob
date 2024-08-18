@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack serve",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
