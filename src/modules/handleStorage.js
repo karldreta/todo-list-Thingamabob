@@ -1,4 +1,5 @@
 // This is a Module for functions that handle setting and getting from local storage.
+import addDataToContainer from "./uiUtils";
 
 export function storeInLocal(Project) {
   // Call the projectListArr if it exists...
@@ -11,7 +12,8 @@ export function storeInLocal(Project) {
 
   // Store the updated array back in localStorage
   localStorage.setItem("projectList", JSON.stringify(projectListArr));
+  addDataToContainer(Project);
 }
   
 
-// localStorage.clear()
+localStorage.clear()

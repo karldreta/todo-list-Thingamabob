@@ -1,4 +1,3 @@
-import addDataToContainer from "./uiUtils";
 import { deleteCard, expandContent} from './expandedCardFuncs.js';
 import { format, parseISO} from 'date-fns';
 import { storeInLocal } from "./handleStorage.js";
@@ -20,7 +19,7 @@ export class MyProject {
         this.deleteCard = () => deleteCard(this);
         this.addTodo = (todoText) => {
             this.todos.push(todoText);
-            this.expandContent(); 
+            this.expandContent(); // We refresh the expand content
         };
     }
 }
@@ -29,7 +28,6 @@ export default function addProject(projectName, description, dueDate, priorityLv
     const Project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(Project);
     Project.projectIndex = projectsArray.indexOf(Project); // Grab the Index and attach directly to Project
-    addDataToContainer(Project);
     storeInLocal(Project);
 }
 
