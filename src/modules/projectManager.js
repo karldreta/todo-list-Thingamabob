@@ -1,6 +1,8 @@
 import addDataToContainer from "./uiUtils";
 import { deleteCard, expandContent} from './expandedCardFuncs.js';
 import { format, parseISO} from 'date-fns';
+import { storeInLocal } from "./handleStorage.js";
+
 
 export const projectsArray = [];
 
@@ -28,5 +30,6 @@ export default function addProject(projectName, description, dueDate, priorityLv
     projectsArray.push(Project);
     Project.projectIndex = projectsArray.indexOf(Project); // Grab the Index and attach directly to Project
     addDataToContainer(Project);
+    storeInLocal(Project);
 }
 
