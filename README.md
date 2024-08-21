@@ -48,6 +48,19 @@ After many attempts of branching out and refactoring my code, I eventually came 
 
 Edit: At work, I came up with an Idea to attach the data and methods directly at the class (because that's what it supposed to be, I think), I attached everything at the class/constructor and passed the `Project`, this ensures a more consistent flow of data where each DOM elements would directly reference the `Project`. Also, it's no longer necessary to keep the `addDataToContainer`.
 
+## The Pitfalls of Perfectionism
+
+I've been working on this project for over a month, driven by the desire to make it perfect. I had so many ideas and features I wanted to add, but I got so caught up in perfectionism that I nearly messed up version control and almost lost all my progress.
+
+I realized that it was time to stop aiming for perfection, especially when you're still learning, and that I had to move one.
+
+When I come back to this project I will add:
+ * Local Storage for Todos
+ * Rework the sorting functions
+ * Improve the UI/UX
+ * Improve my modules
+
+And, of course, there are many other improvements I'll tackle down the line. But for now, I'm ready to continue my journey.
 
 ### Resources:
 
