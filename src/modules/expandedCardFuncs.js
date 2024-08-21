@@ -1,5 +1,6 @@
 import { projectsArray } from "./projectManager";
 import { addNewTodo } from "./projectForm";
+import { storeInLocal } from './handleStorage.js';
 
 const mainContent = document.querySelector('#content');
 
@@ -60,16 +61,22 @@ function attachBackToContent(editableContent) {
 
 export function deleteCard(Project) {
     const navProjects = document.querySelector('#navProjects');
+    const mainContent = document.querySelector('#content');
+
+    // Remove the project from the in-memory array
     projectsArray.splice(Project.projectIndex, 1);
 
+    // Remove the project from the DOM
     const navProjectToRemove = Array.from(navProjects.querySelectorAll('.navigateToProject')).find(element => 
         element.dataset.projectIndex == Project.projectIndex
     );
-
     const cardToRemove = Array.from(mainContent.querySelectorAll('.projectContainer')).find(element => 
         element.dataset.projectIndex == Project.projectIndex
     );
-    
-    navProjects.removeChild(navProjectToRemove);
-    mainContent.removeChild(cardToRemove);
+
+    if (navProjectToRemove) navProjects.removeChild(navProjectToRemove);
+    if (cardToRemove) mainContent.removeChild(cardToRemove);
+
+    // Update localStorage with the remaining projects
+    localStorage.setItem("projectList", JSON.stringify(projectsArray));
 }

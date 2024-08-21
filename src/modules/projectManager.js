@@ -9,7 +9,7 @@ export class MyProject {
     constructor(projectName, description, dueDate, priorityLvl) {
         this.projectName = projectName;
         this.description = description;
-        this.dueDate = format(parseISO(dueDate), "d MMM yyyy, HH:mm");
+        this.dueDate = dueDate; // Store as ISO date string
         this.priorityLvl = priorityLvl;
         this.todos = []; // Array to store todos
         this.projectIndex = null; // Will be set when added to projectsArray
@@ -24,6 +24,7 @@ export class MyProject {
     }
 }
 
+
 export default function addProject(projectName, description, dueDate, priorityLvl) {
     const Project = new MyProject(projectName, description, dueDate, priorityLvl);
     projectsArray.push(Project);
@@ -31,3 +32,25 @@ export default function addProject(projectName, description, dueDate, priorityLv
     storeInLocal(Project);
 }
 
+export function rehydrateProject(projectData) {
+    // Create a new MyProject instance with the parsed data
+    const project = new MyProject(
+        projectData.projectName,
+        projectData.description,
+        projectData.dueDate, // Use the stored ISO date
+        projectData.priorityLvl
+    ); 
+    
+    // Manually set todos and projectIndex
+    project.todos = projectData.todos || [];
+    project.projectIndex = projectData.projectIndex;
+
+    // Restore methods
+    project.expandContent = () => expandContent(project);
+    project.deleteCard = () => deleteCard(project);
+
+    // Format the date for display only
+    project.dueDate = format(parseISO(project.dueDate), "d MMM yyyy, HH:mm");
+
+    return project;
+}
