@@ -25,5 +25,6 @@ export function storeInLocal(Project) {
   });
 }
 
-
-localStorage.clear()
+document.querySelector('#clearLocalStorage').addEventListener('click', (e) => {
+  localStorage.clear();
+})

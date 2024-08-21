@@ -38,14 +38,14 @@ projectForm.addEventListener('submit', e => {
   });
 
 // Below: Sample Projects For styling:
-addProject('Synthesis Essay', 'Research and analyze philosophical themes.', '2024-08-31T03:00', 'Urgent');
 addProject('Code Review', 'Review the latest code changes and prepare feedback.', '2024-09-15T10:00', 'Important');
-addProject('Grocery Shopping', 'Buy groceries for the week.', '2024-08-15T16:00', 'Relaxed');
-addProject('Project Proposal', 'Draft the project proposal for the new client.', '2025-01-10T09:00', 'Urgent');
-addProject('Website Redesign', 'Complete the redesign of the company website.', '2024-12-01T12:00', 'Important');
-addProject('Read Book', 'Finish reading the book on modern economics.', '2024-09-01T20:00', 'Relaxed');
-addProject('Submit Tax Returns', 'Complete and submit tax returns for the year.', '2024-10-15T14:00', 'Urgent');
-addProject('Organize Files', 'Organize and clean up digital files and folders.', '2024-08-22T11:00', 'Important');
+// addProject('Grocery Shopping', 'Buy groceries for the week.', '2024-08-15T16:00', 'Relaxed');
+// addProject('Organize Files', 'Organize and clean up digital files and folders.', '2024-08-22T11:00', 'Important');
+// addProject('Project Proposal', 'Draft the project proposal for the new client.', '2025-01-10T09:00', 'Urgent');
+// addProject('Website Redesign', 'Complete the redesign of the company website.', '2024-12-01T12:00', 'Important');
+// addProject('Read Book', 'Finish reading the book on modern economics.', '2024-09-01T20:00', 'Relaxed');
+// addProject('Submit Tax Returns', 'Complete and submit tax returns for the year.', '2024-10-15T14:00', 'Urgent');
+// addProject('Synthesis Essay', 'Research and analyze philosophical themes.', '2024-08-31T03:00', 'Urgent');
 
 
 // Below: Todo item Input dialog and Form
